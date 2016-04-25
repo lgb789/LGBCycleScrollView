@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2CF21D6F1CCE0C2800E2CE90 /* LGBTTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF21D6E1CCE0C2800E2CE90 /* LGBTTViewController.m */; };
 		4D6B3333B195C907269FB508 /* Pods_LGBCycleScrollView_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2921BD45AB9C08BB9F30D9FE /* Pods_LGBCycleScrollView_Example.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -37,6 +38,8 @@
 
 /* Begin PBXFileReference section */
 		2921BD45AB9C08BB9F30D9FE /* Pods_LGBCycleScrollView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LGBCycleScrollView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CF21D6D1CCE0C2800E2CE90 /* LGBTTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGBTTViewController.h; sourceTree = "<group>"; };
+		2CF21D6E1CCE0C2800E2CE90 /* LGBTTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGBTTViewController.m; sourceTree = "<group>"; };
 		38776AB3F613585B059F1BAC /* Pods-LGBCycleScrollView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LGBCycleScrollView_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-LGBCycleScrollView_Example/Pods-LGBCycleScrollView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* LGBCycleScrollView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LGBCycleScrollView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -137,6 +140,8 @@
 				6003F5A6195388D20070C39A /* LGBViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
+				2CF21D6D1CCE0C2800E2CE90 /* LGBTTViewController.h */,
+				2CF21D6E1CCE0C2800E2CE90 /* LGBTTViewController.m */,
 			);
 			name = "Example for LGBCycleScrollView";
 			path = LGBCycleScrollView;
@@ -390,6 +395,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CF21D6F1CCE0C2800E2CE90 /* LGBTTViewController.m in Sources */,
 				6003F59E195388D20070C39A /* LGBAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* LGBViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
@@ -467,7 +473,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -500,7 +506,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -516,9 +522,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LGBCycleScrollView/LGBCycleScrollView-Prefix.pch";
 				INFOPLIST_FILE = "LGBCycleScrollView/LGBCycleScrollView-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -532,9 +540,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LGBCycleScrollView/LGBCycleScrollView-Prefix.pch";
 				INFOPLIST_FILE = "LGBCycleScrollView/LGBCycleScrollView-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

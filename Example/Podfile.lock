@@ -1,0 +1,14 @@
+PODS:
+  - LGBCycleScrollView (0.1.0)
+
+DEPENDENCIES:
+  - LGBCycleScrollView (from `../`)
+
+EXTERNAL SOURCES:
+  LGBCycleScrollView:
+    :path: ../
+
+SPEC CHECKSUMS:
+  LGBCycleScrollView: ea8e0c045fad57a2e9b81285613e2b92e48fcabc
+
+COCOAPODS: 0.39.0

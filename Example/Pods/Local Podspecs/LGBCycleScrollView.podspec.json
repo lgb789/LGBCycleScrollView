@@ -1,0 +1,24 @@
+{
+  "name": "LGBCycleScrollView",
+  "version": "0.1.0",
+  "summary": "A cycle scroll view",
+  "description": "An easy use cycle scroll view.",
+  "homepage": "https://github.com/lgb789/LGBCycleScrollView",
+  "license": "MIT",
+  "authors": {
+    "lgb789": "lgb789@126.com"
+  },
+  "source": {
+    "git": "https://github.com/lgb789/LGBCycleScrollView.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "source_files": "LGBCycleScrollView/Classes/**/*",
+  "resource_bundles": {
+    "LGBCycleScrollView": [
+      "LGBCycleScrollView/Assets/*.png"
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+../../../../../LGBCycleScrollView/Classes/LGBCycleScrollViewCell.h
