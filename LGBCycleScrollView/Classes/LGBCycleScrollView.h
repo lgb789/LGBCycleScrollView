@@ -15,7 +15,7 @@
 @protocol LGBCycleScrollViewDelegate <NSObject>
 
 -(void)cycleScrollView:(LGBCycleScrollView *)scrollView
-        didSelectIndex:(NSInteger)index;
+         didSelectItem:(NSInteger)item;
 
 @end
 
@@ -26,7 +26,7 @@
 @property (nonatomic, assign) id<LGBCycleScrollViewDelegate> cycleScrollDelegate;
 
 /**
- *  默认2s
+ *  默认3s
  */
 @property (nonatomic, assign) NSTimeInterval scrollTimeInterval;
 

@@ -20,6 +20,7 @@ static NSString * const kStateKey = @"state";
 @property (nonatomic, strong) UIView *pageControlContainer;
 @property (nonatomic, strong) UIView<LGBCycleScrollViewPageControlDelegate> *control;
 @property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, assign) NSInteger currentItem;
 @end
 
 @implementation LGBCycleScrollView
@@ -71,7 +72,6 @@ static NSString * const kStateKey = @"state";
     [super willMoveToSuperview:newSuperview];
     if (newSuperview == nil) {
         [self cancelTimer];
-        [self.collectionView.panGestureRecognizer removeObserver:self forKeyPath:kStateKey];
     }
 }
 
@@ -79,7 +79,7 @@ static NSString * const kStateKey = @"state";
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.scrollTimeInterval = 2;
+        self.scrollTimeInterval = 3;
         [self addSubview:self.collectionView];
         [self addSubview:self.pageControlContainer];
     }
@@ -95,7 +95,6 @@ static NSString * const kStateKey = @"state";
     self.pageControlContainer.frame = self.bounds;
     
     [self.control setFrame:CGRectMake(0, CGRectGetHeight(self.pageControlContainer.bounds) * 0.85, CGRectGetWidth(self.pageControlContainer.bounds), CGRectGetHeight(self.pageControlContainer.bounds) * 0.15)];
-    
     [self gotoFirstItem];
     
 }
@@ -112,14 +111,14 @@ static NSString * const kStateKey = @"state";
 {
     UICollectionViewCell<LGBCycleScrollViewCellDelegate> *cell = [collectionView dequeueReusableCellWithReuseIdentifier:Identifier forIndexPath:indexPath];
 
-    [cell configCellWithData:[self.items objectAtIndex:indexPath.row]];
+    [cell configCellWithData:[self.items objectAtIndex:indexPath.item]];
     return cell;
 }
 
 #pragma mark - UICollectionViewDelegate
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.cycleScrollDelegate cycleScrollView:self didSelectIndex:indexPath.row];
+    [self.cycleScrollDelegate cycleScrollView:self didSelectItem:indexPath.item];
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -135,6 +134,8 @@ static NSString * const kStateKey = @"state";
     int p = page % (self.items.count - 2);
     
     [self.control setCurrentOfPage:p];
+    
+    self.currentItem = p;
     
     //往左滑动到最后一张
     if (currentOffsetX >= contentWidth + scrollWidth / 2 && currentOffsetX > lastOffsetX) {
@@ -153,24 +154,21 @@ static NSString * const kStateKey = @"state";
     
 }
 
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.timer setFireDate:[NSDate distantFuture]];
+}
+
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    [self.timer setFireDate:[[NSDate alloc] initWithTimeIntervalSinceNow:self.scrollTimeInterval]];
+}
+
 #pragma mark - *********************** event response ***********************
 -(void)scrollItems
 {
     [self.collectionView setContentOffset:CGPointMake(CGRectGetWidth(self.collectionView.bounds) + self.collectionView.contentOffset.x, self.collectionView.contentOffset.y) animated:YES];
 }
-
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
-{
-    if ([keyPath isEqualToString:kStateKey]) {
-        UIGestureRecognizerState state = [change[NSKeyValueChangeNewKey] integerValue];
-        if (state == UIGestureRecognizerStateBegan) {
-            [self.timer setFireDate:[NSDate distantFuture]];
-        }else if (state == UIGestureRecognizerStateEnded){
-            [self.timer setFireDate:[[NSDate alloc] initWithTimeIntervalSinceNow:self.scrollTimeInterval]];
-        }
-    }
-}
-
 
 #pragma mark - *********************** private methods ***********************
 -(void)cancelTimer
@@ -183,8 +181,8 @@ static NSString * const kStateKey = @"state";
 
 -(void)gotoFirstItem
 {
-    if (self.collectionView.contentOffset.x == 0 && self.items.count > 1) {
-        self.collectionView.contentOffset = CGPointMake(CGRectGetWidth(self.collectionView.bounds), self.collectionView.contentOffset.y);
+    if (self.items.count > 1) {
+        [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:(self.currentItem + 1) inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
     }
 }
 
@@ -199,8 +197,7 @@ static NSString * const kStateKey = @"state";
         _collectionView.showsVerticalScrollIndicator = NO;
         _collectionView.showsHorizontalScrollIndicator = NO;
         _collectionView.pagingEnabled = YES;
-        
-        [_collectionView.panGestureRecognizer addObserver:self forKeyPath:kStateKey options:NSKeyValueObservingOptionNew context:nil];
+
     }
     return _collectionView;
 }

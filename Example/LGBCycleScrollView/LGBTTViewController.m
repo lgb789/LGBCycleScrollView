@@ -32,7 +32,7 @@
     [self layoutSubviews];
     
     [self.scrollView configItemsWithData:@[
-                                           @"pic4.jpg",
+                                           @"pic3.jpg",
                                            ]];
 
 #if 1
@@ -68,9 +68,9 @@
 }
 
 #pragma mark - *********************** delegate ***********************
--(void)cycleScrollView:(LGBCycleScrollView *)scrollView didSelectIndex:(NSInteger)index
+-(void)cycleScrollView:(LGBCycleScrollView *)scrollView didSelectItem:(NSInteger)item
 {
-    NSLog(@"index--->%ld", index);
+    NSLog(@"index--->%ld", item);
 }
 
 #pragma mark - *********************** event response ***********************
