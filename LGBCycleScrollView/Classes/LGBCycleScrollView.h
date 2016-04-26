@@ -31,11 +31,11 @@
 @property (nonatomic, assign) NSTimeInterval scrollTimeInterval;
 
 /**
- *  必须组册Cell Class
+ *  必须注册Cell Class
  *
  *  @param cellClass 必须实现 LGBCycleScrollViewCellDelegate 协议
  */
--(void)registerCellClass:(Class)cellClass;
+-(void)registerCellClass:(Class<LGBCycleScrollViewCellDelegate>)cellClass;
 
 -(void)configItemsWithData:(NSArray *)data;
 

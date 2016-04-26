@@ -27,9 +27,8 @@ static NSString * const kStateKey = @"state";
 
 #pragma mark - *********************** public methods ***********************
 
--(void)registerCellClass:(Class)cellClass
+-(void)registerCellClass:(Class<LGBCycleScrollViewCellDelegate>)cellClass
 {
-    NSAssert([cellClass conformsToProtocol:@protocol(LGBCycleScrollViewCellDelegate)], ([NSString stringWithFormat:@"%@ 必须实现 LGBCycleScrollViewCellDelegate 协议", NSStringFromClass(cellClass)]));
     [self.collectionView registerClass:cellClass forCellWithReuseIdentifier:Identifier];
 }
 
@@ -55,6 +54,7 @@ static NSString * const kStateKey = @"state";
     if (data.count > 1) {
         [self cancelTimer];
         self.timer = [NSTimer scheduledTimerWithTimeInterval:self.scrollTimeInterval target:self selector:@selector(scrollItems) userInfo:nil repeats:YES];
+        [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
     }
     
 }
@@ -79,6 +79,7 @@ static NSString * const kStateKey = @"state";
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.scrollEnabled = NO;
         self.scrollTimeInterval = 3;
         [self addSubview:self.collectionView];
         [self addSubview:self.pageControlContainer];
