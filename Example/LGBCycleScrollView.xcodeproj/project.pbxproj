@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C98721C1CE05E460014F3C6 /* ScrollViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C98721B1CE05E460014F3C6 /* ScrollViewCell.m */; };
 		2CF21D6F1CCE0C2800E2CE90 /* LGBTTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF21D6E1CCE0C2800E2CE90 /* LGBTTViewController.m */; };
 		4D6B3333B195C907269FB508 /* Pods_LGBCycleScrollView_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2921BD45AB9C08BB9F30D9FE /* Pods_LGBCycleScrollView_Example.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -38,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		2921BD45AB9C08BB9F30D9FE /* Pods_LGBCycleScrollView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LGBCycleScrollView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C98721A1CE05E460014F3C6 /* ScrollViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollViewCell.h; sourceTree = "<group>"; };
+		2C98721B1CE05E460014F3C6 /* ScrollViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollViewCell.m; sourceTree = "<group>"; };
 		2CF21D6D1CCE0C2800E2CE90 /* LGBTTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGBTTViewController.h; sourceTree = "<group>"; };
 		2CF21D6E1CCE0C2800E2CE90 /* LGBTTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGBTTViewController.m; sourceTree = "<group>"; };
 		38776AB3F613585B059F1BAC /* Pods-LGBCycleScrollView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LGBCycleScrollView_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-LGBCycleScrollView_Example/Pods-LGBCycleScrollView_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -142,6 +145,8 @@
 				6003F594195388D20070C39A /* Supporting Files */,
 				2CF21D6D1CCE0C2800E2CE90 /* LGBTTViewController.h */,
 				2CF21D6E1CCE0C2800E2CE90 /* LGBTTViewController.m */,
+				2C98721A1CE05E460014F3C6 /* ScrollViewCell.h */,
+				2C98721B1CE05E460014F3C6 /* ScrollViewCell.m */,
 			);
 			name = "Example for LGBCycleScrollView";
 			path = LGBCycleScrollView;
@@ -398,6 +403,7 @@
 				2CF21D6F1CCE0C2800E2CE90 /* LGBTTViewController.m in Sources */,
 				6003F59E195388D20070C39A /* LGBAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* LGBViewController.m in Sources */,
+				2C98721C1CE05E460014F3C6 /* ScrollViewCell.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -519,6 +525,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LGBCycleScrollView/LGBCycleScrollView-Prefix.pch";
 				INFOPLIST_FILE = "LGBCycleScrollView/LGBCycleScrollView-Info.plist";
@@ -537,6 +544,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LGBCycleScrollView/LGBCycleScrollView-Prefix.pch";
 				INFOPLIST_FILE = "LGBCycleScrollView/LGBCycleScrollView-Info.plist";

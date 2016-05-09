@@ -1,6 +1,6 @@
 {
   "name": "LGBCycleScrollView",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "summary": "A cycle scroll view",
   "description": "An easy use cycle scroll view.",
   "homepage": "https://github.com/lgb789/LGBCycleScrollView",
@@ -10,7 +10,7 @@
   },
   "source": {
     "git": "https://github.com/lgb789/LGBCycleScrollView.git",
-    "tag": "0.1.1"
+    "tag": "0.1.2"
   },
   "platforms": {
     "ios": "6.0"

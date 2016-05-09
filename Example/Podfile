@@ -2,6 +2,7 @@ use_frameworks!
 
 target 'LGBCycleScrollView_Example', :exclusive => true do
   pod 'LGBCycleScrollView', :path => '../'
+  pod 'YYWebImage', '~> 1.0.3'
 end
 
 target 'LGBCycleScrollView_Tests', :exclusive => true do

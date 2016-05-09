@@ -1,14 +1,25 @@
 PODS:
-  - LGBCycleScrollView (0.1.1)
+  - LGBCycleScrollView (0.1.2)
+  - YYCache (1.0.3)
+  - YYImage (1.0.1):
+    - YYImage/Core (= 1.0.1)
+  - YYImage/Core (1.0.1)
+  - YYWebImage (1.0.3):
+    - YYCache
+    - YYImage
 
 DEPENDENCIES:
   - LGBCycleScrollView (from `../`)
+  - YYWebImage (~> 1.0.3)
 
 EXTERNAL SOURCES:
   LGBCycleScrollView:
     :path: ../
 
 SPEC CHECKSUMS:
-  LGBCycleScrollView: 9982001876aa45473996718f6fbe42455e2d1fbd
+  LGBCycleScrollView: e63eae8e7ae969590a3682400da8efa5ecba881b
+  YYCache: 282f35b5b0990833d0b7a06d864a87141a021da2
+  YYImage: b41b45bc5f32bfcdf67bdfb9c09da9e9832357c0
+  YYWebImage: 8da75a611fd0d2e0f58a273f9ca0bc731614cb0d
 
 COCOAPODS: 0.39.0

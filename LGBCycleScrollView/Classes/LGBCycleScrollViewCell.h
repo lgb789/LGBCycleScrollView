@@ -8,13 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@interface LGBCycleScrollViewCell : UICollectionViewCell
 
-@protocol LGBCycleScrollViewCellDelegate <NSObject>
-
+//子类重写此方法
 -(void)configCellWithData:(id)data;
-
-@end
-
-@interface LGBCycleScrollViewCell : UICollectionViewCell <LGBCycleScrollViewCellDelegate>
 
 @end

@@ -8,6 +8,7 @@
 
 #import "LGBTTViewController.h"
 #import "LGBCycleScrollView.h"
+#import "ScrollViewCell.h"
 
 @interface LGBTTViewController () <LGBCycleScrollViewDelegate>
 @property (nonatomic, strong) LGBCycleScrollView *scrollView;
@@ -31,28 +32,33 @@
     
     [self layoutSubviews];
     
-    [self.scrollView configItemsWithData:@[
-                                           @"pic3.jpg",
-                                           ]];
-
-#if 1
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.scrollView configItemsWithData:@[
-                                               @"pic1.jpg",
-                                               @"pic2.jpg",
-                                               @"pic3.jpg",
-                                               @"pic4.jpg",
-                                               ]];
-    });
-#else
-    [self.scrollView configItemsWithData:@[
-                                      @"pic1.jpg",
-                                      @"pic2.jpg",
-                                      @"pic3.jpg",
-                                      @"pic4.jpg",
-                                      ]];
-#endif
     
+
+    if (LocalImage) {
+        [self.scrollView configItemsWithData:@[
+                                               @"pic3.jpg",
+                                               ]];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.scrollView configItemsWithData:@[
+                                                   @"pic1.jpg",
+                                                   @"pic2.jpg",
+                                                   @"pic3.jpg",
+                                                   @"pic4.jpg",
+                                                   ]];
+        });
+    }else{
+        NSArray *urlArray = @[@"http://7xjtvh.com1.z0.glb.clouddn.com/browse01.jpg",
+                              @"http://7xjtvh.com1.z0.glb.clouddn.com/browse02.jpg",
+                              @"http://7xjtvh.com1.z0.glb.clouddn.com/browse03.jpg",
+                              @"http://7xjtvh.com1.z0.glb.clouddn.com/browse04.jpg",
+                              @"http://7xjtvh.com1.z0.glb.clouddn.com/browse05.jpg",
+                              @"http://7xjtvh.com1.z0.glb.clouddn.com/browse06.jpg",
+                              @"http://7xjtvh.com1.z0.glb.clouddn.com/browse07.jpg",
+                              @"http://7xjtvh.com1.z0.glb.clouddn.com/browse08.jpg",
+                              @"http://7xjtvh.com1.z0.glb.clouddn.com/browse09.jpg"];
+        [self.scrollView configItemsWithData:urlArray];
+    }
+
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -87,7 +93,10 @@
 {
     if (_scrollView == nil) {
         _scrollView = [LGBCycleScrollView new];
-        [_scrollView registerCellClass:[LGBCycleScrollViewCell class]];
+        [_scrollView registerCellClass:[ScrollViewCell class]];
+        /**
+         *  实现 LGBCycleScrollViewPageControlDelegate 协议可以自定义 page control
+         */
         [_scrollView setCycleScrollPageControl:[LGBCycleScrollViewPageControl new]];
         _scrollView.cycleScrollDelegate = self;
     }

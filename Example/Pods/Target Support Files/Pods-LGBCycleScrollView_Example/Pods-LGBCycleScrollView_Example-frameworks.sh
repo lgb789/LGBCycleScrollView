@@ -85,7 +85,13 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-LGBCycleScrollView_Example/LGBCycleScrollView.framework"
+  install_framework "Pods-LGBCycleScrollView_Example/YYCache.framework"
+  install_framework "Pods-LGBCycleScrollView_Example/YYImage.framework"
+  install_framework "Pods-LGBCycleScrollView_Example/YYWebImage.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-LGBCycleScrollView_Example/LGBCycleScrollView.framework"
+  install_framework "Pods-LGBCycleScrollView_Example/YYCache.framework"
+  install_framework "Pods-LGBCycleScrollView_Example/YYImage.framework"
+  install_framework "Pods-LGBCycleScrollView_Example/YYWebImage.framework"
 fi

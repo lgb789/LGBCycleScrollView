@@ -33,9 +33,9 @@
 /**
  *  必须注册Cell Class
  *
- *  @param cellClass 必须实现 LGBCycleScrollViewCellDelegate 协议
+ *  @param cellClass 必须是 LGBCycleScrollViewCell 以及子类
  */
--(void)registerCellClass:(Class<LGBCycleScrollViewCellDelegate>)cellClass;
+-(void)registerCellClass:(Class)cellClass;
 
 -(void)configItemsWithData:(NSArray *)data;
 

@@ -8,7 +8,6 @@
 
 #import "LGBCycleScrollView.h"
 
-
 #define Identifier                  @"Identifier"
 
 static NSString * const kStateKey = @"state";
@@ -27,7 +26,7 @@ static NSString * const kStateKey = @"state";
 
 #pragma mark - *********************** public methods ***********************
 
--(void)registerCellClass:(Class<LGBCycleScrollViewCellDelegate>)cellClass
+-(void)registerCellClass:(Class)cellClass
 {
     [self.collectionView registerClass:cellClass forCellWithReuseIdentifier:Identifier];
 }
@@ -110,10 +109,15 @@ static NSString * const kStateKey = @"state";
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell<LGBCycleScrollViewCellDelegate> *cell = [collectionView dequeueReusableCellWithReuseIdentifier:Identifier forIndexPath:indexPath];
-
-    [cell configCellWithData:[self.items objectAtIndex:indexPath.item]];
+    LGBCycleScrollViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:Identifier forIndexPath:indexPath];
+    
     return cell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    LGBCycleScrollViewCell *c = (LGBCycleScrollViewCell *)cell;
+    [c configCellWithData:[self.items objectAtIndex:indexPath.item]];
 }
 
 #pragma mark - UICollectionViewDelegate
