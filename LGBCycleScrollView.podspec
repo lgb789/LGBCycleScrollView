@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "LGBCycleScrollView"
-  s.version          = "0.1.3"
+  s.version          = "0.1.4"
   s.summary          = "A cycle scroll view"
 
 # This description is used to generate tags and improve search results.

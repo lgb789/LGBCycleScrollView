@@ -37,7 +37,9 @@
 -(void)configCellWithData:(id)data
 {
     if (LocalImage) {
-        self.imageView.image = [UIImage imageNamed:data];
+        UIImage *img = [UIImage imageNamed:data];
+        NSLog(@"img -->%@", img);
+        self.imageView.image = img;
     }else{
         [self.imageView yy_setImageWithURL:[NSURL URLWithString:data] options:YYWebImageOptionProgressiveBlur];
     }

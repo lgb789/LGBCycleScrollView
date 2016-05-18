@@ -48,7 +48,7 @@ static NSString * const kStateKey = @"state";
     
     [self.collectionView reloadData];
     
-    [self gotoFirstItem];
+//    [self gotoFirstItem];
     
     if (data.count > 1) {
         [self cancelTimer];
@@ -110,14 +110,8 @@ static NSString * const kStateKey = @"state";
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     LGBCycleScrollViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:Identifier forIndexPath:indexPath];
-    
+    [cell configCellWithData:[self.items objectAtIndex:indexPath.item]];
     return cell;
-}
-
--(void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    LGBCycleScrollViewCell *c = (LGBCycleScrollViewCell *)cell;
-    [c configCellWithData:[self.items objectAtIndex:indexPath.item]];
 }
 
 #pragma mark - UICollectionViewDelegate
@@ -195,7 +189,7 @@ static NSString * const kStateKey = @"state";
 -(UICollectionView *)collectionView
 {
     if (_collectionView == nil) {
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.viewLayout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:self.viewLayout];
         _collectionView.backgroundColor = [UIColor whiteColor];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;

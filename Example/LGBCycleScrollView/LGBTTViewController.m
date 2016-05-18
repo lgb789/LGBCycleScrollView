@@ -92,7 +92,7 @@
 -(LGBCycleScrollView *)scrollView
 {
     if (_scrollView == nil) {
-        _scrollView = [LGBCycleScrollView new];
+        _scrollView = [[LGBCycleScrollView alloc] init];
         [_scrollView registerCellClass:[ScrollViewCell class]];
         /**
          *  实现 LGBCycleScrollViewPageControlDelegate 协议可以自定义 page control
